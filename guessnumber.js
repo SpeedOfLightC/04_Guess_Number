@@ -1,5 +1,4 @@
 // console.log(Math.floor(Math.random() * 100 + 1));
-
 let randomNumber = Math.floor(Math.random() * 100 + 1);
 
 //Selectors
@@ -11,6 +10,8 @@ const lowOrHi = document.querySelector(".lowOrHi");
 const startOver = document.querySelector(".resultParas");
 
 const p = document.createElement("p");
+
+const jsconfetti = new JSConfetti();
 
 let prevGuess = [];
 let numGuesses = 1;
@@ -48,6 +49,7 @@ function validateGuess(guess) {
 function checkGuess(guess) {
   if (guess === randomNumber) {
     displayMessage(`You guessed it right on ${numGuesses - 1} attempt`);
+    jsconfetti.addConfetti();
     endGame();
   } else if (guess < randomNumber) {
     displayMessage("Number is TOOO Low");
